@@ -5,5 +5,5 @@ Built using Wagtail/Django
 - Python3
 
 ## Setup
-- Within root directory
+- Within 'restaurant' directory
       pip install -r requirements.txt
