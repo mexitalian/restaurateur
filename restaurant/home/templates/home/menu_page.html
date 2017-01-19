@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+  <h2>Menu</h2>
+  {% for placement in page.section_placements.all %}
+    <!-- {{ section }} -->
+    <br>
+    <h3>{{ placement.section.name }}</h3>
+    <br>
+    {% for item in placement.section.menu_items.all %}
+      <h4>{{ item.name }}</h4>
+      <br>
+      {{ item.price }}
+      <br>
+      {{ item.description }}
+      <br>
+      {{ item.recommend }}
+      <br>
+    {% endfor %}
+  {% endfor %}
+{% endblock %}
