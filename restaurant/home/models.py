@@ -14,6 +14,7 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, FieldRow
 # -------------------
 
 class HomePage(Page):
+    template = 'home/home_page.pug'
     pass
 
 

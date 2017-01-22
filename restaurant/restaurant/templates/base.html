@@ -21,8 +21,13 @@
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        <link rel="shortcut icon" href="img/favicon.png">
+        <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/restaurant.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
@@ -35,7 +40,9 @@
         {% block content %}{% endblock %}
 
         {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/restaurant.js' %}"></script>
+        <script src="{% static 'js/vendor/wow.js' %}"></script>
+        <script src="{% static 'js/vendor/webfontloader.js' %}"></script>
+        <script src="{% static 'js/default.js' %}"></script>
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}

@@ -1,0 +1,273 @@
+extends "base.html"
+- load static
+
+block body_class
+  template-homepage
+
+block content
+  .banner
+    .header
+      .header-inner.container.clear
+        a.logo(href='#')
+          span.sr Lambda Logo
+        input#navigation-toggle-checkbox.navigation-toggle-checkbox.sr(type='checkbox', name='navigation-toggle-checkbox')
+        label.navigation-toggle-label(for='navigation-toggle-checkbox', onclick='')
+          span.navigation-toggle-label-inner
+            span.sr Navigation
+        .navigation
+          ul.navigation-menu
+            li.navigation-item
+              a(href='#about') About
+            li.navigation-item
+              a(href='#ingredients') Ingredients
+            li.navigation-item
+              a(href='#menu') Menu
+            li.navigation-item
+              a(href='#reviews') Reviews
+            li.navigation-item
+              a(href='#reservations') Reservations
+          ul.navigation-social
+            li.navigation-item-social
+              a.social.social-twitter(href='#')
+                span.sr Twitter
+            li.navigation-item-social
+              a.social.social-facebook(href='#')
+                span.sr Facebook
+            li.navigation-item-social
+              a.social.social-google-plus(href='#')
+                span.sr Google Plus
+    .banner-inner.container
+      h1.banner-lead
+        span.banner-lead-1 the right ingredients
+        span.banner-lead-2 for the right food
+      .banner-buttons
+        a.button.button-primary(href='#reservations') Book a table
+        a.button.button-secondary(href='#menu') See the menu
+
+  #about.content-block.about-block
+    .about-block-inner.container
+      .clear.text-center
+        .about-block-content.col-6-desktop
+          h2 Just the right food
+          p
+            | If you've been to one of our restaurants, you've seen - and tasted - what keeps our customers coming back for more.
+            br
+            |             Perfect materials and freshly baked food, delicious Lambda cakes, muffins, and gourmet coffees makes us hard to resist!
+            br
+            |             Stop in today and check us out!
+          img.about-chef(src="{% static 'img/chef.png' %}", alt='Chef')
+        .about-block-img.col-6-desktop.none-tablet.block-desktop
+          img(src="{% static 'img/dish.png' %}", alt='Dish of food')
+
+  #ingredients.content-block.ingredients-block
+    .ingredients-block-inner.container.clear
+      .feature-box.text-center.col-12.col-6-desktop.right
+        h2.h2-secondary Fine ingredients
+        .feature-box-content
+          p
+            | If you've been to one of our restaurants, you've seen - and tasted - what keeps our customers coming back for more.
+            br
+            |             Perfect materials and freshly baked food, delicious Lambda cakes, muffins, and gourmet coffees makes us hard to resist!
+            br
+            |             Stop in today and check us out!
+          .feature-image-group.clear
+            img.feature-image.feature-image-1(src="{% static 'img/01-wheat.jpg' %}", alt='Wheat')
+            img.feature-image.feature-image-2(src="{% static 'img/02-spices.jpg' %}", alt='Spices')
+            img.feature-image.feature-image-3(src="{% static 'img/03-bread.jpg' %}", alt='Bread')
+
+  #menu.content-block.food-menu-block
+    .food-menu-block-inner.container
+      .clear
+        .food-menu-content
+          h2 Appetisers
+          ul.food-menu-list
+            li.food-menu-item
+              .food-menu-item-header.clear
+                h3.food-menu-heading Tzatski
+                span.food-menu-price $3.99
+              .food-menu-summary
+                p
+                  | Refreshing traditional cucumber and garlic in yoghurt dip.
+            li.food-menu-item
+              .food-menu-item-header.clear
+                h3.food-menu-heading Aubergine Salad
+                span.food-menu-price $5.50
+              .food-menu-summary
+                p
+                  | Pureed eggplant garlic, green pepper and tomato dip.
+            li.food-menu-item
+              .food-menu-item-header.clear
+                h3.food-menu-heading Aubergine Salad
+                span.food-menu-price $5.25
+              .food-menu-summary
+                p
+                  | Pureed eggplant garlic, green pepper and tomato dip.
+          h2 Salads
+          ul.food-menu-list
+            li.food-menu-item
+              .food-menu-item-header.clear
+                h3.food-menu-heading Olive Special
+                span.food-menu-price $5.99
+              .food-menu-summary
+                p
+                  | Refreshing traditional cucumber and garlic in yoghurt dip.
+            li.food-menu-item.food-menu-item-special
+              .food-menu-item-header.clear
+                h3.food-menu-heading Greek Salad
+                span.food-menu-price $5.50
+              .food-menu-summary
+                p
+                  | Pureed eggplant garlic, green pepper and tomato dip.
+            li.food-menu-item
+              .food-menu-item-header.clear
+                h3.food-menu-heading Gusto Salad
+                span.food-menu-price $5.25
+              .food-menu-summary
+                p
+                  | Pureed eggplant garlic, green pepper and tomato dip.
+        .food-menu-content
+          h2 Starters
+          ul.food-menu-list
+            li.food-menu-item
+              .food-menu-item-header.clear
+                h3.food-menu-heading Haloumi
+                span.food-menu-price $3.99
+              .food-menu-summary
+                p
+                  | Refreshing traditional cucumber and garlic in yoghurt dip.
+            li.food-menu-item
+              .food-menu-item-header.clear
+                h3.food-menu-heading Spinach Pie
+                span.food-menu-price $5.50
+              .food-menu-summary
+                p
+                  | Pureed eggplant garlic, green pepper and tomato dip.
+          h2 Main Dishes
+          ul.food-menu-list
+            li.food-menu-item
+              .food-menu-item-header.clear
+                h3.food-menu-heading Cornish Mackerel
+                span.food-menu-price $5.99
+              .food-menu-summary
+                p
+                  | Refreshing traditional cucumber and garlic in yoghurt dip.
+            li.food-menu-item.food-menu-item-special
+              .food-menu-item-header.clear
+                h3.food-menu-heading Roast Lamb
+                span.food-menu-price $5.50
+              .food-menu-summary
+                p
+                  | Pureed eggplant garlic, green pepper and tomato dip.
+            li.food-menu-item
+              .food-menu-item-header.clear
+                h3.food-menu-heading Fried Chicken
+                span.food-menu-price $5.25
+              .food-menu-summary
+                p
+                  | Pureed eggplant garlic, green pepper and tomato dip.
+            li.food-menu-item
+              .food-menu-item-header.clear
+                h3.food-menu-heading Pastitsio
+                span.food-menu-price $5.99
+              .food-menu-summary
+                p
+                  | Pureed eggplant garlic, green pepper and tomato dip.
+
+  #reviews.content-block.reviews-block
+    .reviews-block-inner.container
+      .feature-box.text-center.col-12-tablet.col-8-desktop.no-float.center-element
+        h2.h2-secondary Guest Reviews
+        blockquote
+          p
+            | If you've been to one of our restaurants, you've seen - and tasted - what keeps our customers coming back for more.
+            | Perfect materials and freshly baked food, delicious Lambda cakes, muffins, and gourmet coffees makes us hard to resist!
+            | Stop in today and check us out!
+          cite
+            | food inc, New York
+
+  #reservations.content-block.reservations-block
+    .reservations-block-inner.container
+      .clear
+        .reservation-block-img.col-3-desktop.none.block-desktop
+          img(src="{% static 'img/food-01.jpg' %}", alt='Food')
+        .reservation-block-img.col-6-tablet.col-3-desktop.none.block-tablet
+          img(src="{% static 'img/food-02.jpg' %}", alt='Food')
+        .reservation-block-form.col-6-tablet
+          .text-center
+            h2 Just the right food
+            p
+              | If you've been to one of our restaurants, you've seen - and tasted - what keeps our customers coming back for more. Perfect materials and freshly baked food
+          form.reservations-form
+            fieldset
+              legend.sr Contact Us
+              .clear
+                .col-6-tablet.field-group
+                  label.block.strong(for='name') Name
+                  input#name.field(name='full-name', type='text', placeholder='your name *')
+                .col-6-tablet.field-group
+                  label.block.strong(for='email') Email
+                  input#email.field(name='email', type='email', placeholder='your email *')
+              .clear
+                .col-6-tablet.field-group
+                  label.block.strong(for='date') Date
+                  input#date.field(name='date-of-booking', type='text', placeholder='date *')
+                .col-6-tablet.field-group
+                  label.block.strong(for='party-size') Party size
+                  span.select
+                    select#party-size(name='party-size')
+                      option(value='1') 1
+                      option(value='2') 2
+                      option(value='3') 3
+              .text-center
+                input.button.reservations-submit(type='submit', value='Book now!')
+
+  .footer
+    .footer-inner.container
+      .clear
+        .footer-column.col-4-desktop
+          h3.footer-heading About us
+          p
+            | Lambda's new and expanded Chelsea location represents a truly
+            strong authentic
+            |  Greek
+            |             patisserie, featuring breakfasts of fresh croissants and steaming bowls of café.
+        .footer-column.col-4-desktop
+          h3.footer-heading Opening Hours
+          p
+            strong Mon-Thu:
+            |  7.00am - 8.00pm
+            br
+            strong Fri-Sun:
+            |  7.00am - 10.00pm
+          ul.payment-types.icon-list-inline
+            li
+              span.payment.payment-mastercard
+                span.sr Mastercard
+            li
+              span.payment.payment-visa
+                span.sr Visa
+            li
+              span.payment.payment-american-express
+                span.sr American Express
+            li
+              span.payment.payment-paypal
+                span.sr PayPal
+        .footer-column.col-4-desktop
+          h3.footer-heading Our Location
+          p
+            | 19th Paradise Street Sitia
+            br
+            |             128 Meserole Avenue
+          ul.footer-social-list.icon-list-inline
+            li.navigation-item-social
+              a.social.social-twitter(href='#')
+                span.sr Twitter
+            li.navigation-item-social
+              a.social.social-facebook(href='#')
+                span.sr Facebook
+            li.navigation-item-social
+              a.social.social-google-plus(href='#')
+                span.sr Google Plus
+            li.navigation-item-social
+              a.social.social-youtube(href='#')
+                span.sr YouTube

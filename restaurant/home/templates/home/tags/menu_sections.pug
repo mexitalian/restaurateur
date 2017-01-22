@@ -1,13 +1,18 @@
 for placement in section_placements.all
-  h3= placement.section.name
+  .food-menu-block-inner.container
+    .clear
+      .food-menu-content
+        h2= placement.section.name
+        for item in placement.section.menu_items.all
+          ul.food-menu-list
 
-  for item in placement.section.menu_items.all
-    p
-      strong= item.name
-      span= item.price
-      br
-      = item.description
-      br
-      if item.recommend
-        stong
-          sup Recommended
+            itemClass = ""
+            if item.recommend
+              itemClass = "food-menu-item-special"
+
+            li.food-menu-item(class=(itemClass))
+              .food-menu-item-header.clear
+                h3.food-menu-heading= item.name
+                span.food-menu-price= item.price
+              .food-menu-summary
+                p= item.description
