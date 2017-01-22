@@ -3,7 +3,7 @@ from django import template
 
 register = template.Library()
 
-@register.inclusion_tag('home/tags/menu_sections.html', takes_context=True)
+@register.inclusion_tag('home/tags/menu_sections.pug', takes_context=True)
 def section_placements(context):
     return {
         'section_placements': MenuPageSectionPlacement.objects.all(),

@@ -1,0 +1,13 @@
+for placement in section_placements.all
+  h3= placement.section.name
+
+  for item in placement.section.menu_items.all
+    p
+      strong= item.name
+      span= item.price
+      br
+      = item.description
+      br
+      if item.recommend
+        stong
+          sup Recommended
