@@ -37,7 +37,7 @@ class HomePage(Page):
 #   Menu Models
 # ---------------
 
-class MenuItem(models.Model):
+class MenuItem(Orderable, models.Model):
     section = ParentalKey('MenuSection', related_name='menu_items')
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=6, decimal_places=2)

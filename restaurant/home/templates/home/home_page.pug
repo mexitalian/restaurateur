@@ -6,14 +6,15 @@ block body_class
 
 block content
   .banner
-    include header.pug
+    include navigation.pug
     .banner-inner.container
       h1.banner-lead
-        span.banner-lead-1 the right ingredients
-        span.banner-lead-2 for the right food
+        span.banner-lead-1 an irresistable blend of good food and the best of service
+      //- todo: put this quote citation in
+      //- p Matthew Lewin, Ham and High
       .banner-buttons
         a.button.button-primary(href='#reservations') Book a table
-        a.button.button-secondary(href='#menu') See the menu
+        a.button.button-secondary(href='#menu') See our menu
 
   #about.content-block.about-block
     .about-block-inner.container
