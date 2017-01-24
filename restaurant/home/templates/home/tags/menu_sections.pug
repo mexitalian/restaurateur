@@ -1,18 +1,36 @@
-for placement in section_placements.all
-  .food-menu-block-inner.container
-    .clear
-      .food-menu-content
-        h2= placement.section.name
-        for item in placement.section.menu_items.all
+.food-menu-block-inner.container
+  .clear
+    for placement in section_placements.all
+      if forloop.counter0|divisibleby:2
+        .food-menu-content.one
+          h2= placement.section.name
           ul.food-menu-list
+            for item in placement.section.menu_items.all
 
-            itemClass = ""
-            if item.recommend
-              itemClass = "food-menu-item-special"
+              itemClass = ""
+              if item.recommend
+                itemClass = "food-menu-item-special"
 
-            li.food-menu-item(class=(itemClass))
-              .food-menu-item-header.clear
-                h3.food-menu-heading= item.name
-                span.food-menu-price= item.price
-              .food-menu-summary
-                p= item.description
+              li.food-menu-item(class=(itemClass))
+                .food-menu-item-header.clear
+                  h3.food-menu-heading= item.name
+                  span.food-menu-price= item.price
+                .food-menu-summary
+                  p= item.description
+
+      else
+        .food-menu-content.two
+          h2= placement.section.name
+          ul.food-menu-list
+            for item in placement.section.menu_items.all
+
+              itemClass = ""
+              if item.recommend
+                itemClass = "food-menu-item-special"
+
+              li.food-menu-item(class=(itemClass))
+                .food-menu-item-header.clear
+                  h3.food-menu-heading= item.name
+                  span.food-menu-price= item.price
+                .food-menu-summary
+                  p= item.description
