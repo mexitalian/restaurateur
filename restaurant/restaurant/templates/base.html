@@ -39,6 +39,8 @@
 
         {% block content %}{% endblock %}
 
+        {% include "footer.pug" %}
+
         {# Global javascript #}
         <script src="{% static 'js/vendor/wow.js' %}"></script>
         <script src="{% static 'js/vendor/webfontloader.js' %}"></script>

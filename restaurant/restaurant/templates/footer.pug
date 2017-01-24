@@ -1,0 +1,45 @@
+- load restaurant_tags wagtailcore_tags
+
+- with settings.home.RestaurantInfo as info
+
+  .footer
+    .footer-inner.container
+      .clear
+        .footer-column.col-4-desktop
+          h3.footer-heading About us
+          {{ info.about|richtext }}
+
+        .footer-column.col-4-desktop
+          h3.footer-heading Opening Hours
+          {{ info.opening_times|richtext }}
+          ul.payment-types.icon-list-inline
+            li
+              span.payment.payment-mastercard
+                span.sr Mastercard
+            li
+              span.payment.payment-visa
+                span.sr Visa
+            //- li
+            //-   span.payment.payment-american-express
+            //-     span.sr American Express
+            //- li
+            //-   span.payment.payment-paypal
+            //-     span.sr PayPal
+
+        .footer-column.col-4-desktop
+          h3.footer-heading Our Location
+          {{ info.location|richtext }}
+
+          //- ul.footer-social-list.icon-list-inline
+          //-   li.navigation-item-social
+          //-     a.social.social-twitter(href='#')
+          //-       span.sr Twitter
+          //-   li.navigation-item-social
+          //-     a.social.social-facebook(href='#')
+          //-       span.sr Facebook
+          //-   li.navigation-item-social
+          //-     a.social.social-google-plus(href='#')
+          //-       span.sr Google Plus
+          //-   li.navigation-item-social
+          //-     a.social.social-youtube(href='#')
+          //-       span.sr YouTube

@@ -4,10 +4,25 @@ from django.db import models
 
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
+from wagtail.wagtailcore import blocks
 from wagtail.wagtailcore.models import Orderable, Page
+from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailsnippets.models import register_snippet
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, FieldRowPanel, MultiFieldPanel #, StreamFieldPanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, FieldRowPanel, MultiFieldPanel, StreamFieldPanel
+from wagtail.contrib.settings.models import BaseSetting, register_setting
+
+# ----------------------
+#   Site Wide Settings
+# ----------------------
+@register_setting
+class RestaurantInfo(BaseSetting):
+    about = RichTextField()
+    location = RichTextField()
+    opening_times = RichTextField()
+
+    # class Meta:
+    #     verbose_name = "Restaurant Info"
 
 # -------------------
 #   HomePage Models
@@ -71,5 +86,5 @@ class MenuPageSectionPlacement(Orderable, models.Model):
 
 class MenuPage(Page):
     content_panels = Page.content_panels + [
-        InlinePanel('section_placements', label="Sections"),
+        InlinePanel('section_placements', label='Sections'),
     ]
