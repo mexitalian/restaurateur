@@ -85,6 +85,8 @@ class MenuPageSectionPlacement(Orderable, models.Model):
 
 
 class MenuPage(Page):
+    template = 'home/menu_page.pug'
+
     content_panels = Page.content_panels + [
         InlinePanel('section_placements', label='Sections'),
     ]

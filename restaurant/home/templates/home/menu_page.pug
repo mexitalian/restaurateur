@@ -1,0 +1,10 @@
+extends "base.html"
+- load wagtailcore_tags restaurant_tags
+
+block content
+  .banner
+    include header.pug
+
+  #menu.content-block.food-menu-block
+    h2 Menu
+    {% section_placements %}

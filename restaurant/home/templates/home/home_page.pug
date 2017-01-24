@@ -6,36 +6,7 @@ block body_class
 
 block content
   .banner
-    .header
-      .header-inner.container.clear
-        a.logo(href='#')
-          span.sr Lambda Logo
-        input#navigation-toggle-checkbox.navigation-toggle-checkbox.sr(type='checkbox', name='navigation-toggle-checkbox')
-        label.navigation-toggle-label(for='navigation-toggle-checkbox', onclick='')
-          span.navigation-toggle-label-inner
-            span.sr Navigation
-        .navigation
-          ul.navigation-menu
-            li.navigation-item
-              a(href='#about') About
-            li.navigation-item
-              a(href='#ingredients') Ingredients
-            li.navigation-item
-              a(href='#menu') Menu
-            li.navigation-item
-              a(href='#reviews') Reviews
-            li.navigation-item
-              a(href='#reservations') Reservations
-          ul.navigation-social
-            li.navigation-item-social
-              a.social.social-twitter(href='#')
-                span.sr Twitter
-            li.navigation-item-social
-              a.social.social-facebook(href='#')
-                span.sr Facebook
-            li.navigation-item-social
-              a.social.social-google-plus(href='#')
-                span.sr Google Plus
+    include header.pug
     .banner-inner.container
       h1.banner-lead
         span.banner-lead-1 the right ingredients

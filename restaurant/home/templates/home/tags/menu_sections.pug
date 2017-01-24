@@ -2,7 +2,7 @@
   .clear
     for placement in section_placements.all
       if forloop.counter0|divisibleby:2
-        .food-menu-content.one
+        .food-menu-content
           h2= placement.section.name
           ul.food-menu-list
             for item in placement.section.menu_items.all
@@ -19,7 +19,7 @@
                   p= item.description
 
       else
-        .food-menu-content.two
+        .food-menu-content
           h2= placement.section.name
           ul.food-menu-list
             for item in placement.section.menu_items.all
