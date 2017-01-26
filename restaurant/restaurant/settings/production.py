@@ -11,9 +11,6 @@ ALLOWED_HOSTS = [
   '.giacomos.co.uk.'
 ]
 
-STATIC_ROOT = '/home/giacomos/staging.giacomos.co.uk/public/static/'
-# BASE_URL = 'https://charlos.co.uk'
-
 try:
     from .local import *
 except ImportError:

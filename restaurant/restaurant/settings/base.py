@@ -16,7 +16,8 @@ from __future__ import absolute_import, unicode_literals
 import os
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = os.path.dirname(PROJECT_DIR)
+# need to jump three folders up due to the repo's structure and dreamhost workings
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(PROJECT_DIR)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -136,10 +137,10 @@ STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, 'static'),
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'public/static')
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'public/media')
 MEDIA_URL = '/media/'
 
 
@@ -149,4 +150,4 @@ WAGTAIL_SITE_NAME = "restaurant"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://example.com'
+BASE_URL = 'http://giacomos.co.uk'
