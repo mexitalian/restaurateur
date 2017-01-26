@@ -7,3 +7,4 @@ Built using Wagtail/Django
 ## Setup
 - Within 'restaurant' directory
       pip install -r requirements.txt
+      pip install -r requirements-freeze.txt
