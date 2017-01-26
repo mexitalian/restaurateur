@@ -1,194 +1,65 @@
 extends "base.html"
-- load static
+- load static wagtailcore_tags wagtailimages_tags restaurant_tags
 
 block body_class
   template-homepage
 
-block content
-  .banner
-    include navigation.pug
-    .banner-inner.container
-      h1.banner-lead
-        span.banner-lead-1 an irresistable blend of good food and the best of service
-      //- todo: put this quote citation in
-      //- p Matthew Lewin, Ham and High
-      .banner-buttons
-        a.button.button-primary(href='#reservations') Book a table
-        a.button.button-secondary(href='#menu') See our menu
+block banner_cta
+  .banner-buttons
+    a.button.button-primary(href='#reservations') Make a reservation
+    if page.specials
+      a.button.button-secondary(href='#specials') See {{page.specials}}
 
+block content
   #about.content-block.about-block
     .about-block-inner.container
       .clear.text-center
         .about-block-content.col-6-desktop
-          h2 Just the right food
-          p
-            | If you've been to one of our restaurants, you've seen - and tasted - what keeps our customers coming back for more.
-            br
-            |             Perfect materials and freshly baked food, delicious Lambda cakes, muffins, and gourmet coffees makes us hard to resist!
-            br
-            |             Stop in today and check us out!
-          img.about-chef(src="{% static 'img/chef.png' %}", alt='Chef')
+          h2= page.headline
+          {{ page.intro|richtext }}
         .about-block-img.col-6-desktop.none-tablet.block-desktop
-          img(src="{% static 'img/dish.png' %}", alt='Dish of food')
+          {% image page.intro_image original as i_img %}
+          img(src="{{i_img.url}}" alt="{{i_img.alt}}")
 
-  #ingredients.content-block.ingredients-block
+  #specials.content-block.ingredients-block
     .ingredients-block-inner.container.clear
       .feature-box.text-center.col-12.col-6-desktop.right
-        h2.h2-secondary Fine ingredients
         .feature-box-content
-          p
-            | If you've been to one of our restaurants, you've seen - and tasted - what keeps our customers coming back for more.
-            br
-            |             Perfect materials and freshly baked food, delicious Lambda cakes, muffins, and gourmet coffees makes us hard to resist!
-            br
-            |             Stop in today and check us out!
-          .feature-image-group.clear
-            img.feature-image.feature-image-1(src="{% static 'img/01-wheat.jpg' %}", alt='Wheat')
-            img.feature-image.feature-image-2(src="{% static 'img/02-spices.jpg' %}", alt='Spices')
-            img.feature-image.feature-image-3(src="{% static 'img/03-bread.jpg' %}", alt='Bread')
+          if page.specials
+            - menu_section id=page.specials.id
+          else
+            h2 Call us to ask about Today's specials
 
-  #menu.content-block.food-menu-block
-    .food-menu-block-inner.container
-      .clear
-        .food-menu-content
-          h2 Appetisers
-          ul.food-menu-list
-            li.food-menu-item
-              .food-menu-item-header.clear
-                h3.food-menu-heading Tzatski
-                span.food-menu-price $3.99
-              .food-menu-summary
-                p
-                  | Refreshing traditional cucumber and garlic in yoghurt dip.
-            li.food-menu-item
-              .food-menu-item-header.clear
-                h3.food-menu-heading Aubergine Salad
-                span.food-menu-price $5.50
-              .food-menu-summary
-                p
-                  | Pureed eggplant garlic, green pepper and tomato dip.
-            li.food-menu-item
-              .food-menu-item-header.clear
-                h3.food-menu-heading Aubergine Salad
-                span.food-menu-price $5.25
-              .food-menu-summary
-                p
-                  | Pureed eggplant garlic, green pepper and tomato dip.
-          h2 Salads
-          ul.food-menu-list
-            li.food-menu-item
-              .food-menu-item-header.clear
-                h3.food-menu-heading Olive Special
-                span.food-menu-price $5.99
-              .food-menu-summary
-                p
-                  | Refreshing traditional cucumber and garlic in yoghurt dip.
-            li.food-menu-item.food-menu-item-special
-              .food-menu-item-header.clear
-                h3.food-menu-heading Greek Salad
-                span.food-menu-price $5.50
-              .food-menu-summary
-                p
-                  | Pureed eggplant garlic, green pepper and tomato dip.
-            li.food-menu-item
-              .food-menu-item-header.clear
-                h3.food-menu-heading Gusto Salad
-                span.food-menu-price $5.25
-              .food-menu-summary
-                p
-                  | Pureed eggplant garlic, green pepper and tomato dip.
-        .food-menu-content
-          h2 Starters
-          ul.food-menu-list
-            li.food-menu-item
-              .food-menu-item-header.clear
-                h3.food-menu-heading Haloumi
-                span.food-menu-price $3.99
-              .food-menu-summary
-                p
-                  | Refreshing traditional cucumber and garlic in yoghurt dip.
-            li.food-menu-item
-              .food-menu-item-header.clear
-                h3.food-menu-heading Spinach Pie
-                span.food-menu-price $5.50
-              .food-menu-summary
-                p
-                  | Pureed eggplant garlic, green pepper and tomato dip.
-          h2 Main Dishes
-          ul.food-menu-list
-            li.food-menu-item
-              .food-menu-item-header.clear
-                h3.food-menu-heading Cornish Mackerel
-                span.food-menu-price $5.99
-              .food-menu-summary
-                p
-                  | Refreshing traditional cucumber and garlic in yoghurt dip.
-            li.food-menu-item.food-menu-item-special
-              .food-menu-item-header.clear
-                h3.food-menu-heading Roast Lamb
-                span.food-menu-price $5.50
-              .food-menu-summary
-                p
-                  | Pureed eggplant garlic, green pepper and tomato dip.
-            li.food-menu-item
-              .food-menu-item-header.clear
-                h3.food-menu-heading Fried Chicken
-                span.food-menu-price $5.25
-              .food-menu-summary
-                p
-                  | Pureed eggplant garlic, green pepper and tomato dip.
-            li.food-menu-item
-              .food-menu-item-header.clear
-                h3.food-menu-heading Pastitsio
-                span.food-menu-price $5.99
-              .food-menu-summary
-                p
-                  | Pureed eggplant garlic, green pepper and tomato dip.
 
-  #reviews.content-block.reviews-block
-    .reviews-block-inner.container
-      .feature-box.text-center.col-12-tablet.col-8-desktop.no-float.center-element
-        h2.h2-secondary Guest Reviews
-        blockquote
-          p
-            | If you've been to one of our restaurants, you've seen - and tasted - what keeps our customers coming back for more.
-            | Perfect materials and freshly baked food, delicious Lambda cakes, muffins, and gourmet coffees makes us hard to resist!
-            | Stop in today and check us out!
-          cite
-            | food inc, New York
+
+  //- #menu.content-block.food-menu-block
+  //-   .food-menu-block-inner.container
+  //-     .clear
+  //-       //- add .single-col class to modify presentation
+  //-       .food-menu-content
+  //-           - menu_section id=page.specials.id
+
+  //- #reviews.content-block.reviews-block
+  //-   .reviews-block-inner.container
+  //-     .feature-box.text-center.col-12-tablet.col-8-desktop.no-float.center-element
+  //-       h2.h2-secondary Guest Reviews
+  //-       blockquote
+  //-         p
+  //-           | If you've been to one of our restaurants, you've seen - and tasted - what keeps our customers coming back for more.
+  //-           | Perfect materials and freshly baked food, delicious Lambda cakes, muffins, and gourmet coffees makes us hard to resist!
+  //-           | Stop in today and check us out!
+  //-         cite
+  //-           | food inc, New York
 
   #reservations.content-block.reservations-block
     .reservations-block-inner.container
       .clear
-        .reservation-block-img.col-3-desktop.none.block-desktop
-          img(src="{% static 'img/food-01.jpg' %}", alt='Food')
-        .reservation-block-img.col-6-tablet.col-3-desktop.none.block-tablet
-          img(src="{% static 'img/food-02.jpg' %}", alt='Food')
         .reservation-block-form.col-6-tablet
           .text-center
-            h2 Just the right food
-            p
-              | If you've been to one of our restaurants, you've seen - and tasted - what keeps our customers coming back for more. Perfect materials and freshly baked food
-          form.reservations-form
-            fieldset
-              legend.sr Contact Us
-              .clear
-                .col-6-tablet.field-group
-                  label.block.strong(for='name') Name
-                  input#name.field(name='full-name', type='text', placeholder='your name *')
-                .col-6-tablet.field-group
-                  label.block.strong(for='email') Email
-                  input#email.field(name='email', type='email', placeholder='your email *')
-              .clear
-                .col-6-tablet.field-group
-                  label.block.strong(for='date') Date
-                  input#date.field(name='date-of-booking', type='text', placeholder='date *')
-                .col-6-tablet.field-group
-                  label.block.strong(for='party-size') Party size
-                  span.select
-                    select#party-size(name='party-size')
-                      option(value='1') 1
-                      option(value='2') 2
-                      option(value='3') 3
-              .text-center
-                input.button.reservations-submit(type='submit', value='Book now!')
+            {{ page.reservation|richtext }}
+
+        .reservation-block-img.col-6-tablet
+          iframe(
+            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2446.1784818116203!2d-0.19732554729501517!3d51.56222067927261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8bb092551a67a87c!2zR2lhY29tb-KAmXM!5e0!3m2!1sen!2s!4v1485328190492'
+            style='border:0;width:100%;height:25rem;'
+          )

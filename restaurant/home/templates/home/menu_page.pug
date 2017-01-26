@@ -2,9 +2,12 @@ extends "base.html"
 - load wagtailcore_tags restaurant_tags
 
 block content
-  .banner
-    include navigation.pug
-
   #menu.content-block.food-menu-block
-    h2 Menu
-    {% section_placements %}
+    .form.block-inner.container
+      .clear.text-center
+        .block-content
+          h2= page.title
+          p= page.intro
+          br
+
+    {% section_placements page=page.id %}

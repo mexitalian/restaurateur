@@ -10,9 +10,17 @@ def get_site_root(context):
     return context['request'].site.root_page
 
 @register.inclusion_tag('home/tags/menu_sections.pug', takes_context=True)
-def section_placements(context):
+def section_placements(context, page):
     return {
-        'section_placements': MenuPageSectionPlacement.objects.all(),
+        'section_placements': MenuPageSectionPlacement.objects.filter(page = page),
+        'request': context['request'],
+    }
+
+# Single menu section – used for HomePage specials
+@register.inclusion_tag('home/tags/menu_section.pug', takes_context=True)
+def menu_section(context, id):
+    return {
+        'menu_section': MenuSection.objects.filter(id = id),
         'request': context['request'],
     }
 

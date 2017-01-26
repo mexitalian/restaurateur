@@ -11,12 +11,14 @@ from wagtail.wagtailsnippets.models import register_snippet
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, FieldRowPanel, MultiFieldPanel, StreamFieldPanel
 from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 # ----------------------
 #   Site Wide Settings
 # ----------------------
 @register_setting
 class RestaurantInfo(BaseSetting):
+    site_name= models.TextField(blank=False)
     about = RichTextField()
     location = RichTextField()
     opening_times = RichTextField()
@@ -30,7 +32,32 @@ class RestaurantInfo(BaseSetting):
 
 class HomePage(Page):
     template = 'home/home_page.pug'
-    pass
+
+    headline = models.TextField()
+    intro = RichTextField()
+    intro_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    specials = models.ForeignKey(
+        'MenuSection',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    reservation = RichTextField()
+
+    content_panels = Page.content_panels + [
+        FieldPanel('headline'),
+        FieldPanel('intro'),
+        ImageChooserPanel('intro_image'),
+        SnippetChooserPanel('specials'),
+        FieldPanel('reservation'),
+    ]
 
 
 # ---------------
@@ -87,6 +114,9 @@ class MenuPageSectionPlacement(Orderable, models.Model):
 class MenuPage(Page):
     template = 'home/menu_page.pug'
 
+    intro = models.TextField(blank=True)
+
     content_panels = Page.content_panels + [
+        FieldPanel('intro'),
         InlinePanel('section_placements', label='Sections'),
     ]

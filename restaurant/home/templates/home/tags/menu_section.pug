@@ -1,0 +1,11 @@
+ul.food-menu-list
+  for section in menu_section.all
+    h2= section.name
+    ul.food-menu-list
+      for item in section.menu_items.all
+        li.food-menu-item
+          .food-menu-item-header.clear
+            span.food-menu-heading= item.name
+            span.food-menu-price £{{item.price}}
+          .food-menu-summary
+            p= item.description

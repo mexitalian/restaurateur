@@ -37,6 +37,22 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
+        <div class="banner">
+          <div class="clear">
+            {% include 'navigation.pug' %}
+            <div class="banner-inner container">
+              <h1 class="banner-lead">
+                <span class="banner-lead-1">
+                  {{ settings.home.RestaurantInfo.site_name }}
+                </span>
+              </h1>
+            </div>
+          </div>
+
+          {% block banner_cta %}
+          {% endblock %}
+        </div>
+
         {% block content %}{% endblock %}
 
         {% include "footer.pug" %}
