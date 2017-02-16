@@ -1,10 +1,6 @@
 # The Restaurateur
 Restaurant focused CMS built using Wagtail/Django
 
-## Notes
-As a stop–gap until I can figure out how to serve media files using the webserver, Django will be used to serve the **media** files via `urls.py`
-
-
 ## Requirements
 - Python3
 
@@ -15,7 +11,7 @@ $ pip install -r requirements.txt
 $ pip install -r requirements-dep.txt
 ```
 
-The latest version of pypugjs is required and is not available from pip directly, to install use the following git endpoint  
+The latest version of pypugjs is required and is not available from pip directly, to install use the following git endpoint
 `$ pip install git+https://github.com/matannoam/pypugjs.git`
 
 ## Deployment
