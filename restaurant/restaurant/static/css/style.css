@@ -2078,6 +2078,9 @@ img {
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
 }
+.food-menu-block.active .food-menu-content:nth-child(odd) {
+  clear: left;
+}
 .food-menu-block.active .food-menu-content:first-child {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
