@@ -6,7 +6,7 @@ django-treebeard==4.1.0
 djangorestframework==3.5.3
 html5lib==0.999999999
 olefile==0.44
-Pillow==4.0.0
+Pillow==8.1.1
 pypugjs==5.1.2
 pytz==2016.10
 requests==2.12.4
